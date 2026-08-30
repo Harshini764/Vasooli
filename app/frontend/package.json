@@ -1,5 +1,6 @@
 {
-  "name": "shadcnui",
+  "name": "vasooli",
+  "description": "Bounded, verified, auditable revenue recovery agent — Razorpay AI Buildathon Track 3",
   "type": "module",
   "scripts": {
     "dev": "vite",
