@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light neutral content surface, tinted toward the navy brand hue (215). */
+    --background: 214 24% 97%;
+    --foreground: 217 33% 17%;
+
+    --card: 213 30% 99%;
+    --card-foreground: 217 33% 17%;
+
+    --popover: 213 30% 99%;
+    --popover-foreground: 217 33% 17%;
+
+    --primary: 217 45% 24%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 214 22% 93%;
+    --secondary-foreground: 217 33% 20%;
+
+    --muted: 214 20% 94%;
+    --muted-foreground: 215 16% 45%;
+
+    --accent: 205 70% 94%;
+    --accent-foreground: 217 40% 22%;
+
+    --destructive: 0 68% 48%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
+    --ring: 205 72% 42%;
+
+    --radius: 0.625rem;
+
+    /* Deep navy sidebar (#1E293B family). */
+    --sidebar-background: 217 33% 17%;
+    --sidebar-foreground: 214 28% 88%;
+    --sidebar-primary: 199 84% 48%;
+    --sidebar-primary-foreground: 217 40% 12%;
+    --sidebar-accent: 217 30% 24%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 26% 27%;
+    --sidebar-ring: 199 84% 48%;
+  }
+
+  .dark {
+    --background: 217 33% 11%;
+    --foreground: 214 28% 92%;
+
+    --card: 217 31% 14%;
+    --card-foreground: 214 28% 92%;
+
+    --popover: 217 31% 14%;
+    --popover-foreground: 214 28% 92%;
+
+    --primary: 205 72% 52%;
+    --primary-foreground: 217 40% 12%;
+
+    --secondary: 217 28% 19%;
+    --secondary-foreground: 214 28% 92%;
+
+    --muted: 217 26% 19%;
+    --muted-foreground: 215 18% 65%;
+
+    --accent: 217 28% 22%;
+    --accent-foreground: 214 28% 94%;
+
+    --destructive: 0 60% 44%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 24% 24%;
+    --input: 217 24% 24%;
+    --ring: 199 80% 50%;
+
+    --sidebar-background: 217 35% 13%;
+    --sidebar-foreground: 214 28% 88%;
+    --sidebar-primary: 199 84% 48%;
+    --sidebar-primary-foreground: 217 40% 12%;
+    --sidebar-accent: 217 30% 20%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 26% 22%;
+    --sidebar-ring: 199 84% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    font-kerning: normal;
+  }
+
+  h1 {
+    @apply text-2xl font-semibold leading-tight tracking-tight;
+  }
+
+  h2 {
+    @apply text-lg font-semibold leading-snug;
+  }
+}
+
+/* ---- Fintech motion: fast, ease-out, no bounce ---- */
+
+@keyframes fin-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fin-slide-left {
+  from {
+    opacity: 0;
+    transform: translateX(-14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fin-success-pulse {
+  0% {
+    box-shadow: 0 0 0 0 hsl(152 60% 42% / 0.5);
+  }
+  100% {
+    box-shadow: 0 0 0 12px hsl(152 60% 42% / 0);
+  }
+}
+
+.fin-fade-up {
+  animation: fin-fade-up 300ms cubic-bezier(0.25, 1, 0.5, 1) both;
+}
+
+.fin-slide-left {
+  animation: fin-slide-left 320ms cubic-bezier(0.25, 1, 0.5, 1) both;
+}
+
+/* Enhanced animations for wow factor */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(79, 70, 229, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(79, 70, 229, 0.8);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-up-fade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.animate-gradient-shift {
+  animation: gradient-shift 3s ease infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 3s infinite;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.animate-slide-up-fade {
+  animation: slide-up-fade 0.5s ease-out;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced focus states for better UX */
+:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for theme switching */
+* {
+  @apply transition-colors duration-300;
+}
+
+/* Backdrop blur for modals */
+.backdrop-blur-sm {
+  @apply backdrop-blur;
+}
+
+.fin-success-pulse {
+  animation: fin-success-pulse 600ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.fin-press {
+  transition: transform 120ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.fin-press:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fin-fade-up,
+  .fin-slide-left,
+  .fin-success-pulse {
+    animation: none;
+  }
+}
